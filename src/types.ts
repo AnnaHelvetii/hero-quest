@@ -11,3 +11,10 @@ export interface FooterLink {
 	label: string;
 	icon?: string;
 }
+
+export interface FortunePrize {
+	id: number;
+	label: string;
+	value: string;
+	img: string;
+}
