@@ -6,3 +6,8 @@ export interface QuestItem {
 	buttonText: string;
 	icon?: string;
 }
+
+export interface FooterLink {
+	label: string;
+	icon?: string;
+}

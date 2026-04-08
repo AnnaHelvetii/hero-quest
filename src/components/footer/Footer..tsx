@@ -1,0 +1,61 @@
+import React from "react";
+import clsx from "clsx";
+import styles from "./Footer.module.scss";
+import smallLogo from "./../../img/small-logo.svg";
+import tgLogo from "./../../img/accent-icons/telegram.svg";
+import { INFO_LINKS, DOWNLOAD_LINKS, PAYMENT_METHODS } from "../../helpers";
+
+export const Footer: React.FC = () => {
+	return (
+		<footer className={clsx(styles.mainContainer, styles.footer)}>
+			<div className={styles.footerWrapper}>
+				<div className={styles.footerColumns}>
+					<div className={styles.footerColumn}>
+						<img src={smallLogo} alt="logo" />
+						<ul className={styles.linkList}>
+							{INFO_LINKS.map((link) => (
+								<li key={link} className={styles.link}>{link}</li>
+							))}
+						</ul>
+					</div>
+
+					<div className={styles.footerColumn}>
+						<p>Скачать</p>
+						<ul className={styles.linkList}>
+							{DOWNLOAD_LINKS.map(({ label, icon }) => (
+								<li key={label} className={styles.link}>
+									{icon && <img src={icon} alt={label} />}
+									<p>{label}</p>
+								</li>
+							))}
+						</ul>
+					</div>
+
+					<div className={styles.footerColumn}>
+						<p>Способы оплаты</p>
+						<ul className={styles.linkList}>
+							{PAYMENT_METHODS.map(({ label, icon }) => (
+								<li key={label} className={styles.link}>
+									{icon && <img src={icon} alt={label} />}
+									<p>{label}</p>
+								</li>
+							))}
+						</ul>
+					</div>
+
+					<div className={styles.footerColumn}>
+						<p>поддержка 24/7</p>
+						<ul className={styles.linkList}>
+							<li className={styles.tgButton}>
+								<p>Telegram</p>
+								<img src={tgLogo} alt="telegram" />
+							</li>
+							<li className={styles.link}>Публичная оферта</li>
+							<li className={styles.link}>Пользовательское соглашение</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+	);
+};
