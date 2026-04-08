@@ -29,6 +29,12 @@ $screen-xl: 1920px;
 	justify-content: space-between;
 }
 
+@mixin flex-row-space-evenly {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
 @mixin border-radius-8 {
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;

@@ -1,13 +1,12 @@
 import React from "react";
-import clsx from "clsx";
 import styles from "./Footer.module.scss";
 import smallLogo from "./../../img/small-logo.svg";
 import tgLogo from "./../../img/accent-icons/telegram.svg";
-import { INFO_LINKS, DOWNLOAD_LINKS, PAYMENT_METHODS } from "../../helpers";
+import { INFO_LINKS, DOWNLOAD_LINKS, PAYMENT_METHODS } from "../../data";
 
 export const Footer: React.FC = () => {
 	return (
-		<footer className={clsx(styles.mainContainer, styles.footer)}>
+		<footer className="mainContainer">
 			<div className={styles.footerWrapper}>
 				<div className={styles.footerColumns}>
 					<div className={styles.footerColumn}>
@@ -20,7 +19,7 @@ export const Footer: React.FC = () => {
 					</div>
 
 					<div className={styles.footerColumn}>
-						<p>Скачать</p>
+						<p className={styles.columnTitle}>Скачать</p>
 						<ul className={styles.linkList}>
 							{DOWNLOAD_LINKS.map(({ label, icon }) => (
 								<li key={label} className={styles.link}>
@@ -54,6 +53,9 @@ export const Footer: React.FC = () => {
 							<li className={styles.link}>Пользовательское соглашение</li>
 						</ul>
 					</div>
+				</div>
+				<div className={styles.copyright}>
+					<p>© 2025 Wolle Development Limited. Все права защищены.</p>
 				</div>
 			</div>
 		</footer>

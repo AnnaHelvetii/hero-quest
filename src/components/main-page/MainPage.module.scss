@@ -9,9 +9,13 @@
 		gap: 32px;
 
 		.mainTitle {
-			font-size: 44px;
+			font-size: 64px;
 			text-align: center;
 			text-transform: uppercase;
+
+			@include md {
+				font-size: 44px;
+			}
 		}
 	
 		.headerSection {
@@ -43,6 +47,7 @@
 						background-color: $accent;
 						top: 0;
 						padding: 2px 8px;
+						box-shadow: $shadow-primary, $shadow-secondary;
 
 						&.completed {
 							background-color: $text-gray;
@@ -91,10 +96,6 @@
 					grid-template-columns: repeat(1, 1fr); 
 				}
 			}
-		}
-
-		@include lg {
-			margin: 40px 0;
 		}
 	
 		@include md {

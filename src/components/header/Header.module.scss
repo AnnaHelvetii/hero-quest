@@ -1,21 +1,15 @@
 @use "../../styles/variables" as *;
 @use "../../styles/mixins" as *; 
-
-.headerContainer {
-	width: 100%;
-	font-family: "Kelly Slab", sans-serif;
-	font-size: 20px;
-
+	
 	.headerContent {
+		font-family: "Kelly Slab", sans-serif;
 		margin: 16px auto;
 		max-width: $container-desktop;
-		@include flex-row-space-between;
 		gap: 16px;
+		@include flex-row-space-between;
 
 		.menuMobile {
-			@include xl {
-				display: none;
-			}
+			display: none;
 
 			@include md {
 				display: block;
@@ -23,8 +17,9 @@
 		}
 
 		.headerLeft {
-			@include flex-row-space-between;
+			width: 350px;
 			gap: 16px;
+			@include flex-row-space-evenly;
 
 			@include md {
 				display: none;
@@ -43,8 +38,9 @@
 		}
 
 		.headerRight {
-			@include flex-row-space-between;
+			width: 350px;
 			gap: 16px;
+			@include flex-row-space-evenly;
 		
 			.account {
 				border-radius: 40px;
@@ -69,12 +65,11 @@
 		}
 
 		.headerLink {
-			width: 167px;
 			text-align: center;
+			width: 50%;
 		}
 
 		@include md {
 			max-width: $container-tablet;
 		}
 	}
-}

@@ -1,6 +1,96 @@
 @use "../../styles/variables" as *;
 @use "../../styles/mixins" as *; 
 
-.footer {
 
+.footerWrapper {
+	max-width: $container-desktop;
+	margin: 0 auto;
+	border: 1px solid $blockBorders;
+	border-bottom: none;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+
+	.footerColumns {
+		margin: 40px 24px 24px;
+		@include flex-row-space-between;
+		align-items: flex-start;
+		gap: 48px;
+
+		.footerColumn {
+			width: 100%;
+
+			.columnTitle {
+				font-size: 24px;
+				font-weight: 600;
+				color: $text-gray;
+				text-transform: uppercase;
+			}
+
+			&:not(:last-child) {
+				.linkList {
+					padding-top: 14px;
+				}
+			}
+
+			.linkList {
+				@include flex-column;
+				gap: 28px;
+				margin-top: 16px;
+
+				.link {
+					font-family: "Kelly Slab", sans-serif;
+					display: flex;
+					align-items: center;
+					gap: 16px;
+					min-height: 24px;
+
+					p {
+						font-size: 20px;
+						color: $text;
+					}
+				}
+
+				.tgButton {
+					background-color: $text;
+					border-radius: 40px;
+					width: fit-content;
+					padding: 14px 16px;
+					@include flex-center;
+
+					p {
+						color: $bg;
+						font-family: "Kelly Slab", sans-serif;
+						font-size: 20px;
+						margin-right: 16px;
+						text-transform: capitalize;
+					}
+				}
+			}
+		}
+
+		@include sm {
+			gap: 24px;
+		}
+
+		@include xs {
+			@include flex-column;
+		}
+	}
+	
+	@include md {
+		max-width: $container-tablet;
+	}
+	
+	.copyright {
+		border-top: 1px solid $blockBorders;
+		padding: 16px 0 24px;
+		font-size: 20px;
+		color: $text-gray;
+		
+		p {
+			text-align: center;
+		}
+	}
 }

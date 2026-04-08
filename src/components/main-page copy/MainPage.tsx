@@ -14,7 +14,7 @@ export const MainPage: React.FC = () => {
 	};
 
 	return (
-		<div className="mainContainer">
+		<div className={styles.mainContainer}>
 			<div className={styles.mainWrapper}>
 				<h1 className={styles.mainTitle}>Аккаунт</h1>
 				<section className={styles.headerSection}>
