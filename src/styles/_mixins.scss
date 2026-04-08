@@ -1,0 +1,28 @@
+$screen-xs: 375px;
+$screen-sm: 768px;
+$screen-md: 1024px;
+$screen-lg: 1280px;
+$screen-xl: 1920px;
+
+@mixin xs { @media (max-width: #{$screen-xs}) { @content; } }
+@mixin sm { @media (max-width: #{$screen-sm}) { @content; } }
+@mixin md { @media (max-width: #{$screen-md}) { @content; } }
+@mixin lg { @media (max-width: #{$screen-lg}) { @content; } }
+@mixin xl { @media (max-width: #{$screen-xl}) { @content; } }
+
+@mixin flex-column {
+	display: flex;
+	flex-direction: column;
+}
+
+@mixin flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+@mixin border-radius-8 {
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
