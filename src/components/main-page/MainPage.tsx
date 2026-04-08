@@ -1,36 +1,58 @@
+import React, { useState } from "react";
 import styles from "./MainPage.module.scss";
 import cross from "./../../img/white-icons/cross.svg";
 import { QUESTS_DATA } from "../../helpers";
 import { FortuneSection } from "../fortune-section/FortuneSection";
 
 export const MainPage: React.FC = () => {
+	const [completedIds, setCompletedIds] = useState<number[]>([]);
+
+	const handleComplete = (id: number) => {
+		if (!completedIds.includes(id)) {
+			setCompletedIds((prev) => [...prev, id]);
+		}
+	};
+
 	return (
 		<div className={styles.mainContainer}>
-			<h1 className={styles.mainTitle}>Аккаунт</h1>
+			<div className={styles.mainWrapper}>
+				<h1 className={styles.mainTitle}>Аккаунт</h1>
+				<section className={styles.headerSection}>
+					<span className={styles.subTitle}>Квесты</span>
+					<img src={cross} alt="close" />
+				</section>
+				<FortuneSection />
+				<section className={styles.shareListSection}>
+					<ul className={styles.shareList}>
+						{QUESTS_DATA.map((quest) => {
+							const isCompleted = completedIds.includes(quest.id);
 
-			<section className={styles.headerSection}>
-				<span>Квесты</span>
-				<img src={cross} alt="close" />
-			</section>
-			<FortuneSection />
-			<section className={styles.shareListSection}>
-				<h2 className={styles.title}>Активные</h2>
-				<ul className={styles.shareList}>
-					{QUESTS_DATA.map((quest) => (
-						<li key={quest.id} className={styles.shareListItem}>
-							<div className={styles.statusButton}>
-								{quest.status}
-							</div>
-							<p className={styles.itemTitle}>{quest.title}</p>
-							<p className={styles.itemText}>{quest.text}</p>
-							<div className={styles.itemButton}>
-								<p>{quest.buttonText}</p>
-								{quest.icon && <img src={quest.icon} alt={quest.title} />}
-							</div>
-						</li>
-					))}
-				</ul>
-			</section>
+							return (
+								<li key={quest.id} className={styles.shareListItem}>
+									<div 
+										className={`${styles.statusButton} ${isCompleted ? styles.completed : ""}`}
+									>
+										{isCompleted ? "Выполнен" : quest.status}
+									</div>
+									
+									<p className={styles.itemTitle}>{quest.title}</p>
+									<p className={styles.itemText}>{quest.text}</p>
+									
+									{!isCompleted && (
+										<div 
+											className={styles.itemButton} 
+											onClick={() => handleComplete(quest.id)}
+										>
+											<p>{quest.buttonText}</p>
+											{quest.icon && <img src={quest.icon} alt={quest.title} />}
+										</div>
+									)}
+								</li>
+							);
+						})}
+					</ul>
+				</section>
+			</div>
 		</div>
-	)
-}
+	);
+};

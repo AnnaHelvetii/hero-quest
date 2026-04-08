@@ -1,0 +1,103 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *; 
+
+	.mainWrapper {
+		margin: 40px auto;
+		font-family: "Kelly Slab", sans-serif;
+		max-width: $container-desktop;
+		@include flex-column;
+		gap: 32px;
+
+		.mainTitle {
+			font-size: 44px;
+			text-align: center;
+			text-transform: uppercase;
+		}
+	
+		.headerSection {
+			@include flex-row-space-between;
+	
+			.subTitle {
+				font-size: 44px;
+			}
+		}
+	
+		.shareListSection {
+			font-family: "Alumni Sans", sans-serif;
+	
+			.shareList {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr); 
+				gap: 24px;
+	
+				.shareListItem {
+					@include block-wrapper;
+					align-self: start;
+					width: 100%;
+					position: relative;
+	
+					.statusButton {
+						position: absolute;
+						font-size: 20px;
+						line-height: 20px;
+						background-color: $accent;
+						top: 0;
+						padding: 2px 8px;
+
+						&.completed {
+							background-color: $text-gray;
+							color: $bg;
+						}
+					}
+	
+					.itemTitle {
+						margin-top: 4px;
+						font-size: 32px;
+						line-height: 32px;
+						font-weight: 600;
+						text-transform: uppercase;
+					}
+	
+					.itemText {
+						color: $text-gray;
+						font-size: 20px;
+						line-height: 20px;
+						margin-top: 8px;
+					}
+	
+					.itemButton {
+						margin-top: 16px;
+						padding: 8px 0;
+						width: 100%;
+						background-color: $text;
+						color: $bg;
+						border-radius: 40px;
+						gap: 16px;
+						@include flex-center;
+	
+						p {
+							font-size: 24px;
+							font-weight: 600;
+							text-transform: uppercase;
+						}
+					}
+				}
+	
+				@include md {
+					grid-template-columns: repeat(2, 1fr); 
+				}
+	
+				@include xs {
+					grid-template-columns: repeat(1, 1fr); 
+				}
+			}
+		}
+
+		@include lg {
+			margin: 40px 0;
+		}
+	
+		@include md {
+			max-width: $container-tablet;
+		}
+	}

@@ -27,10 +27,22 @@ body {
 	color: $text;
 }
 
-.container {
-	width: 100%;
-	max-width: $container-desktop;
-	margin: 0 auto;
+.mainContainer {
+	@include lg {
+		margin: 0 52px;
+	}
+
+	@include md {
+		margin: 0 48px;
+	}
+
+	@include sm {
+		margin: 0 24px;
+	}
+
+	@include xs {
+		margin: 0 16px;
+	}
 }
 
 button {
