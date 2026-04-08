@@ -1,0 +1,119 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *; 
+
+.fortuneSection {
+	font-family: "Alumni Sans", sans-serif;
+
+	.wheelSection {
+		border: 2px solid $blockBorders;
+		border-radius: 8px;
+		padding: 0;
+		width: 50%;
+
+		.wheelTop {
+			padding: 24px 24px 16px;
+			@include flex-row-space-between;
+
+			.wheelText {
+				.wheelTitle {
+					font-size: 32px;
+					font-weight: 600;
+					text-transform: uppercase;
+					color: $text;
+				}
+
+				.wheelSubTitle {
+					color: $text-gray;
+				}
+			}
+
+			img {
+				width: 72px;
+				height: 72px;
+			}
+		}
+		
+		.wheelBottom {
+			padding: 16px 24px 24px;
+
+			p {
+				margin-top: 16px;
+			}
+
+			.daysBlock {
+				border: 1px solid $blockBorders;
+				border-radius: 8px;
+				padding: 8px 16px;
+				margin-top: 10px;
+				@include flex-row-space-between;
+
+				.day {
+					font-size: 44px;
+					font-weight: 600;
+					margin: 0;
+				}
+			}
+		}
+	}
+}
+
+
+.rouletteWrapper {
+	overflow: hidden;
+	position: relative;
+
+	.wheelList {
+		display: flex;
+		gap: 4px;
+		padding: 0;
+		margin: 0;
+
+		.listItem {
+			width: 120px;
+			min-width: 120px;
+			padding: 16px 0;
+			border: 1px solid $text-gray;
+			border-radius: 8px;
+			font-family: "Alumni Sans", sans-serif;
+			color: $text-gray;
+			flex-shrink: 0;
+			align-items: center;
+			@include flex-column;
+
+			.itemPrize {
+				text-transform: uppercase;
+				font-size: 24px;
+				font-weight: 600;
+			}
+
+			.itemPrizeValue {
+				font-size: 32px;
+				font-family: "Kelly Slab", sans-serif;
+			}
+		}
+	}
+
+	.pointerContainer {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 120px;
+		height: 100%;
+		border: 2px solid $accent;
+		border-radius: 8px;
+		z-index: 10;
+		pointer-events: none;
+		
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: 0px;
+			left: 50%;
+			transform: translateX(-50%) rotate(180deg);
+			border-left: 10px solid transparent;
+			border-right: 10px solid transparent;
+			border-top: 24px solid $accent;
+		}
+	}
+}
