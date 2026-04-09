@@ -40,21 +40,6 @@
 					width: 100%;
 					position: relative;
 	
-					.statusButton {
-						position: absolute;
-						font-size: 20px;
-						line-height: 20px;
-						background-color: $accent;
-						top: 0;
-						padding: 2px 8px;
-						box-shadow: $shadow-primary, $shadow-secondary;
-
-						&.completed {
-							background-color: $text-gray;
-							color: $bg;
-						}
-					}
-	
 					.itemTitle {
 						margin-top: 4px;
 						font-size: 32px;
@@ -96,6 +81,11 @@
 					grid-template-columns: repeat(1, 1fr); 
 				}
 			}
+		}
+
+		.completed {
+			background-color: $text-gray;
+			color: $bg;
 		}
 	
 		@include md {

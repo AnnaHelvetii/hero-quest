@@ -30,7 +30,7 @@ export const MainPage: React.FC = () => {
 							return (
 								<li key={quest.id} className={styles.shareListItem}>
 									<div
-										className={`${styles.statusButton} ${isCompleted ? styles.completed : ""}`}
+										className={`statusButton ${isCompleted ? styles.completed : ""}`}
 									>
 										{isCompleted ? "Выполнен" : quest.status}
 									</div>

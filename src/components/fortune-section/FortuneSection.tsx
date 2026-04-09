@@ -97,7 +97,20 @@ export const FortuneSection: React.FC = () => {
 					</div>
 				</div>
 			</section>
-			<section className={styles.infoSection}></section>
+
+			<section className={styles.infoSection}>
+				<div className="statusButton">Доступен</div>
+				<div className={styles.infoBlock}>
+					<p className={styles.infoTitle}>Расскажи о Hiro</p>
+					<p className={styles.infolText}>
+						Просто напиши пост/статью о нас в крупном канале или на своей странице в соцсетях со ссылкой на нас.
+						Пришли ссылку на пост/статью — и мы начислим тебе от 15 до 90 дней VPN бесплатно! Чем больше охват, тем длиннее подарок!
+					</p>
+					<Button>
+						<span>Отправить ссылки</span>
+					</Button>
+				</div>
+			</section>
 
 			{winner && !isSpinning && (
 				<div className={styles.modalOverlay} onClick={() => setWinner(null)}>

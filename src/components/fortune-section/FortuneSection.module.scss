@@ -3,12 +3,14 @@
 
 .fortuneSection {
 	font-family: "Alumni Sans", sans-serif;
+	gap: 24px;
+	@include flex-row-space-between;
 
 	.wheelSection {
 		border: 2px solid $blockBorders;
 		border-radius: 8px;
 		padding: 0;
-		width: 50%;
+		width: calc(50% - 12px);
 
 		.wheelTop {
 			padding: 24px 24px 16px;
@@ -32,6 +34,66 @@
 				height: 72px;
 			}
 		}
+
+		.rouletteWrapper {
+			overflow: hidden;
+			position: relative;
+
+			.wheelList {
+				display: flex;
+				gap: 4px;
+				padding: 0;
+				margin: 0;
+
+				.listItem {
+					width: 120px;
+					min-width: 120px;
+					padding: 16px 0;
+					border: 1px solid $text-gray;
+					border-radius: 8px;
+					font-family: "Alumni Sans", sans-serif;
+					color: $text-gray;
+					flex-shrink: 0;
+					align-items: center;
+					@include flex-column;
+
+					.itemPrize {
+						text-transform: uppercase;
+						font-size: 24px;
+						font-weight: 600;
+					}
+
+					.itemPrizeValue {
+						font-size: 32px;
+						font-family: "Kelly Slab", sans-serif;
+					}
+				}
+			}
+
+			.pointerContainer {
+				position: absolute;
+				top: 0;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 120px;
+				height: 100%;
+				border: 2px solid $accent;
+				border-radius: 8px;
+				z-index: 10;
+				pointer-events: none;
+				
+				&::after {
+					content: "";
+					position: absolute;
+					bottom: 0px;
+					left: 50%;
+					transform: translateX(-50%) rotate(180deg);
+					border-left: 10px solid transparent;
+					border-right: 10px solid transparent;
+					border-top: 24px solid $accent;
+				}
+			}
+		}
 		
 		.wheelBottom {
 			padding: 16px 24px 24px;
@@ -51,69 +113,39 @@
 					font-size: 44px;
 					font-weight: 600;
 					margin: 0;
+					width: 14%;
+					text-align: center;
 				}
 			}
 		}
+
+		@include xs {
+			width: 100%;
+		}
 	}
-}
 
+	.infoSection {
+		background-color: $text;
+		color: $bg;
+		padding: 28px 24px 24px;
+		position: relative;
 
-.rouletteWrapper {
-	overflow: hidden;
-	position: relative;
-
-	.wheelList {
-		display: flex;
-		gap: 4px;
-		padding: 0;
-		margin: 0;
-
-		.listItem {
-			width: 120px;
-			min-width: 120px;
-			padding: 16px 0;
-			border: 1px solid $text-gray;
-			border-radius: 8px;
-			font-family: "Alumni Sans", sans-serif;
-			color: $text-gray;
-			flex-shrink: 0;
-			align-items: center;
-			@include flex-column;
-
-			.itemPrize {
-				text-transform: uppercase;
-				font-size: 24px;
-				font-weight: 600;
-			}
-
-			.itemPrizeValue {
+		.infoBlock {
+			.infoTitle {
 				font-size: 32px;
-				font-family: "Kelly Slab", sans-serif;
+				font-weight: 600;
+				margin-bottom: 8px;
+				text-transform: uppercase;
+			}
+
+			.infolText {
+				color: $blockBorders;
+				margin-bottom: 16px;
 			}
 		}
 	}
 
-	.pointerContainer {
-		position: absolute;
-		top: 0;
-		left: 50%;
-		transform: translateX(-50%);
-		width: 120px;
-		height: 100%;
-		border: 2px solid $accent;
-		border-radius: 8px;
-		z-index: 10;
-		pointer-events: none;
-		
-		&::after {
-			content: "";
-			position: absolute;
-			bottom: 0px;
-			left: 50%;
-			transform: translateX(-50%) rotate(180deg);
-			border-left: 10px solid transparent;
-			border-right: 10px solid transparent;
-			border-top: 24px solid $accent;
-		}
+	@include xs {
+		@include flex-column;
 	}
 }

@@ -46,6 +46,16 @@ body {
 	}
 }
 
+.statusButton {
+	position: absolute;
+	font-size: 20px;
+	line-height: 20px;
+	background-color: $accent;
+	top: 0;
+	padding: 2px 8px;
+	box-shadow: $shadow-primary, $shadow-secondary;
+}
+
 button {
 	border: none;
 	background: none;
