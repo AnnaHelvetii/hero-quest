@@ -23,7 +23,6 @@ export const FortuneSection: React.FC = () => {
 
 	const wrapperRef = useRef<HTMLDivElement>(null);
 	const extendedPrizes = useMemo(() => Array(50).fill(PRIZES).flat(), []);
-	const formatDigits = (num: number) => num.toString().padStart(2, '0').split('');
 
 	useEffect(() => {
 		if (!showTimer) return;
