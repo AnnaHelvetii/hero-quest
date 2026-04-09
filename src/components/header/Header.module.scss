@@ -31,6 +31,7 @@
 			border-radius: 40px;
 			color: $text;
 			padding: 14px 52px;
+			box-shadow: $shadow-primary, $shadow-secondary;
 
 			@include md {
 				display: none;

@@ -1,12 +1,14 @@
 @use "./variables" as *;
 
 $screen-xs: 375px;
+$screen-sm-pre: 650px; 
 $screen-sm: 768px;
 $screen-md: 1024px;
 $screen-lg: 1280px;
 $screen-xl: 1920px;
 
 @mixin xs { @media (max-width: #{$screen-xs}) { @content; } }
+@mixin sm-pre { @media (max-width: #{$screen-sm-pre}) { @content; } }
 @mixin sm { @media (max-width: #{$screen-sm}) { @content; } }
 @mixin md { @media (max-width: #{$screen-md}) { @content; } }
 @mixin lg { @media (max-width: #{$screen-lg}) { @content; } }

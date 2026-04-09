@@ -95,6 +95,45 @@
 			}
 		}
 		
+		.timerWrapper {
+			display: flex;
+			align-items: flex-start;
+			gap: 4px;
+			padding: 0 24px;
+			font-family: "Kelly Slab", sans-serif;
+			font-size: 44px;
+
+			.timerDivider {
+				margin-top: -6px;
+			}
+			
+			.timerUnit {
+				@include flex-column;
+				align-items: center;
+				gap: 4px;
+
+				.digitsRow {
+					display: flex;
+					gap: 4px;
+
+					.digitBox {
+						display: block;
+						width: 40px;
+						padding: 8px;
+						border: 1px solid $text;
+						border-radius: 4px;
+						text-align: center;
+					}
+				}
+
+				.timerName {
+					font-family: "Alumni Sans", sans-serif;
+					color: $text-gray;
+					font-size: 20px;
+				}
+			}
+		}
+		
 		.wheelBottom {
 			padding: 16px 24px 24px;
 
@@ -107,7 +146,34 @@
 				border-radius: 8px;
 				padding: 8px 16px;
 				margin-top: 10px;
+				position: relative;
 				@include flex-row-space-between;
+
+				&::before {
+					content: '';
+					position: absolute;
+					left: calc(29px + 7%); 
+					top: 50%;
+					height: 16px;
+					background-color: $accent;
+					transform: translateY(-50%);
+					z-index: 1;
+					width: calc(var(--progress-step) * 14.3%);
+					transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+					pointer-events: none;
+				}
+
+				&::after {
+					content: '';
+					position: absolute;
+					left: 34px;
+					top: 50%;
+					width: 68px;
+					height: 16px;
+					background-color: $accent;
+					transform: translate(-50%, -50%);
+					z-index: 1;
+				}
 
 				.day {
 					font-size: 44px;
@@ -115,11 +181,13 @@
 					margin: 0;
 					width: 14%;
 					text-align: center;
+					position: relative;
+					z-index: 2;
 				}
 			}
 		}
 
-		@include xs {
+		@include sm-pre {
 			width: 100%;
 		}
 	}
@@ -128,6 +196,7 @@
 		background-color: $text;
 		color: $bg;
 		padding: 28px 24px 24px;
+		width: calc(50% - 12px);
 		position: relative;
 
 		.infoBlock {
@@ -143,9 +212,84 @@
 				margin-bottom: 16px;
 			}
 		}
+
+		@include sm-pre {
+			width: 100%;
+		}
 	}
 
-	@include xs {
+	@include sm-pre {
 		@include flex-column;
 	}
+}
+
+/* Modal */
+
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    @include flex-center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.modalContent {
+    background: $bg;
+    padding: 32px 24px;
+	width: 476px;
+    border-radius: 28px;
+    text-align: center;
+    transform: translateY(0);
+    animation: slideUp 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+	align-items: center;
+	gap: 24px;
+	@include flex-column;
+
+	h2 {
+		font-size: 44px;
+		font-weight: 600;
+		max-width: 212px;
+	}
+
+    .reveal {
+		font-size: 44px;
+		font-weight: 600;
+		max-width: 50%;
+	}
+
+	.modalText {
+		font-size: 24px;
+		font-weight: 600;
+	}
+
+	.modalMain {
+		@include flex-center;
+		padding: 16px 0;
+
+		.value {
+			font-family: "Kelly Slab", sans-serif;
+			font-size: 32px;
+		}
+	}
+
+	.buttonText {
+		font-size: 32px;
+	}
+
+	@include sm-pre {
+		width: $container-mobile;
+		padding: 32px 16px;
+	}
+}
+
+.collectButton {
+    background-color: #fff !important;
+    color: #000 !important;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { 
+    from { opacity: 0; transform: translateY(50px); } 
+    to { opacity: 1; transform: translateY(0); } 
 }

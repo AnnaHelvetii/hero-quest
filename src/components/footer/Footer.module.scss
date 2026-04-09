@@ -13,8 +13,8 @@
 
 	.footerColumns {
 		margin: 40px 24px 24px;
-		@include flex-row-space-between;
-		align-items: flex-start;
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
 		gap: 48px;
 
 		.footerColumn {
@@ -33,10 +33,19 @@
 				}
 			}
 
+			&:last-child {
+				.linkList {
+					.link {
+						font-family: "Alumni Sans", sans-serif;
+					}
+				}
+			}
+
 			.linkList {
 				@include flex-column;
 				gap: 28px;
 				margin-top: 16px;
+				padding-bottom: 14px;
 
 				.link {
 					font-family: "Kelly Slab", sans-serif;
@@ -71,6 +80,10 @@
 
 		@include sm {
 			gap: 24px;
+		}
+
+		@include sm-pre {
+			grid-template-columns: repeat(2, 1fr);
 		}
 
 		@include xs {

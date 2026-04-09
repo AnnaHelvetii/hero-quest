@@ -50,11 +50,11 @@ export const PAYMENT_METHODS: FooterLink[] = [
 ];
 
 export const PRIZES: FortunePrize[] = [
-	{ id: 1, label: "Бесплатные", value: "3 дня", img: freeImg },
-	{ id: 2, label: "Скидка", value: "50%", img: discountImg },
-	{ id: 3, label: "Скидка", value: "30%", img: discountImg },
-	{ id: 4, label: "Бесплатные", value: "6 часов", img: freeImg },
-	{ id: 5, label: "Скидка", value: "20%", img: discountImg },
-	{ id: 6, label: "Попробуйте", value: "завтра", img: tryLaterImg },
-	{ id: 7, label: "Скидка", value: "10%", img: discountImg },
+	{ id: 1, label: "Бесплатные", value: "3 дня", img: freeImg, reveal: "Поздравляем!\n Вы выиграли", info: "Они уже добавлены к вашей подписке" },
+	{ id: 2, label: "Скидка", value: "50%", img: discountImg, reveal: "Поздравляем!\n Вы выиграли", info: "Активируйте в течение 24 часов" },
+	{ id: 3, label: "Скидка", value: "30%", img: discountImg, reveal: "Поздравляем!\n Вы выиграли", info: "Активируйте в течение 24 часов" },
+	{ id: 4, label: "Бесплатные", value: "6 часов", img: freeImg, reveal: "Поздравляем!\n Вы выиграли", info: "Они уже добавлены к вашей подписке" },
+	{ id: 5, label: "Скидка", value: "20%", img: discountImg, reveal: "Поздравляем!\n Вы выиграли", info: "Активируйте в течение 24 часов" },
+	{ id: 6, label: "Попробуйте", value: "завтра", img: tryLaterImg, reveal: "В другой\n раз повезёт!" },
+	{ id: 7, label: "Скидка", value: "10%", img: discountImg, reveal: "Поздравляем!\n Вы выиграли", info: "Активируйте в течение 24 часов" },
 ];

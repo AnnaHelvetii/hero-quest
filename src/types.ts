@@ -17,4 +17,6 @@ export interface FortunePrize {
 	label: string;
 	value: string;
 	img: string;
+	reveal?: string;
+	info?: string;
 }

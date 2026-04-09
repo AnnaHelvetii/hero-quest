@@ -3,10 +3,10 @@ import styles from "./Button.module.scss";
 
 type Props = ButtonHTMLAttributes<HTMLButtonElement>;
 
-export default function Button({ children, ...props }: Props) {
+export default function Button({ children, className, ...props }: Props) {
 	return (
 		<button
-			className={styles.customButton}
+			className={`${styles.customButton} ${className || ""}`}
 			{...props} 
 		>
 			{children}

@@ -31,7 +31,7 @@ export const Footer: React.FC = () => {
 					</div>
 
 					<div className={styles.footerColumn}>
-						<p>Способы оплаты</p>
+						<p className={styles.columnTitle}>Способы оплаты</p>
 						<ul className={styles.linkList}>
 							{PAYMENT_METHODS.map(({ label, icon }) => (
 								<li key={label} className={styles.link}>
@@ -43,7 +43,7 @@ export const Footer: React.FC = () => {
 					</div>
 
 					<div className={styles.footerColumn}>
-						<p>поддержка 24/7</p>
+						<p className={styles.columnTitle}>поддержка 24/7</p>
 						<ul className={styles.linkList}>
 							<li className={styles.tgButton}>
 								<p>Telegram</p>
