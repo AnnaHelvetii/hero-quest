@@ -1,0 +1,41 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *; 
+
+.timerWrapper {
+	display: flex;
+	align-items: flex-start;
+	gap: 4px;
+	padding: 0 24px;
+	font-family: "Kelly Slab", sans-serif;
+	font-size: 44px;
+
+	.timerDivider {
+		margin-top: -6px;
+	}
+			
+	.timerUnit {
+		@include flex-column;
+		align-items: center;
+		gap: 4px;
+
+		.digitsRow {
+			display: flex;
+			gap: 4px;
+
+			.digitBox {
+				display: block;
+				width: 40px;
+				padding: 8px;
+				border: 1px solid $text;
+				border-radius: 4px;
+				text-align: center;
+			}
+		}
+
+		.timerName {
+			font-family: "Alumni Sans", sans-serif;
+			color: $text-gray;
+			font-size: 20px;
+		}
+	}
+}

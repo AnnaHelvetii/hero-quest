@@ -1,0 +1,60 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *; 
+
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    @include flex-center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.modalContent {
+    background: $bg;
+    padding: 32px 24px;
+	width: 476px;
+    border-radius: 28px;
+    text-align: center;
+    transform: translateY(0);
+    animation: slideUp 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+	align-items: center;
+	gap: 24px;
+	@include flex-column;
+
+	h2 {
+		font-size: 44px;
+		font-weight: 600;
+		max-width: 212px;
+	}
+
+    .reveal {
+		font-size: 44px;
+		font-weight: 600;
+		max-width: 50%;
+	}
+
+	.modalText {
+		font-size: 24px;
+		font-weight: 600;
+	}
+
+	.modalMain {
+		@include flex-center;
+		padding: 16px 0;
+
+		.value {
+			font-family: "Kelly Slab", sans-serif;
+			font-size: 32px;
+		}
+	}
+
+	.buttonText {
+		font-size: 32px;
+	}
+
+	@include sm-pre {
+		width: $container-mobile;
+		padding: 32px 16px;
+	}
+}

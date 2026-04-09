@@ -26,6 +26,7 @@
 
 				.wheelSubTitle {
 					color: $text-gray;
+					max-width: 210px;
 				}
 			}
 
@@ -95,45 +96,6 @@
 			}
 		}
 		
-		.timerWrapper {
-			display: flex;
-			align-items: flex-start;
-			gap: 4px;
-			padding: 0 24px;
-			font-family: "Kelly Slab", sans-serif;
-			font-size: 44px;
-
-			.timerDivider {
-				margin-top: -6px;
-			}
-			
-			.timerUnit {
-				@include flex-column;
-				align-items: center;
-				gap: 4px;
-
-				.digitsRow {
-					display: flex;
-					gap: 4px;
-
-					.digitBox {
-						display: block;
-						width: 40px;
-						padding: 8px;
-						border: 1px solid $text;
-						border-radius: 4px;
-						text-align: center;
-					}
-				}
-
-				.timerName {
-					font-family: "Alumni Sans", sans-serif;
-					color: $text-gray;
-					font-size: 20px;
-				}
-			}
-		}
-		
 		.wheelBottom {
 			padding: 16px 24px 24px;
 
@@ -199,18 +161,17 @@
 		width: calc(50% - 12px);
 		position: relative;
 
-		.infoBlock {
-			.infoTitle {
-				font-size: 32px;
-				font-weight: 600;
-				margin-bottom: 8px;
-				text-transform: uppercase;
-			}
+		.infoTitle {
+			font-size: 32px;
+			font-weight: 600;
+			margin-bottom: 8px;
+			text-transform: uppercase;
+		}
 
-			.infolText {
-				color: $blockBorders;
-				margin-bottom: 16px;
-			}
+		.infolText {
+			color: $blockBorders;
+			margin-bottom: 16px;
+			white-space: pre-line;
 		}
 
 		@include sm-pre {
@@ -223,69 +184,9 @@
 	}
 }
 
-/* Modal */
-
-.modalOverlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.7);
-    @include flex-center;
-    z-index: 1000;
-    animation: fadeIn 0.3s ease;
-}
-
-.modalContent {
-    background: $bg;
-    padding: 32px 24px;
-	width: 476px;
-    border-radius: 28px;
-    text-align: center;
-    transform: translateY(0);
-    animation: slideUp 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
-	align-items: center;
-	gap: 24px;
-	@include flex-column;
-
-	h2 {
-		font-size: 44px;
-		font-weight: 600;
-		max-width: 212px;
-	}
-
-    .reveal {
-		font-size: 44px;
-		font-weight: 600;
-		max-width: 50%;
-	}
-
-	.modalText {
-		font-size: 24px;
-		font-weight: 600;
-	}
-
-	.modalMain {
-		@include flex-center;
-		padding: 16px 0;
-
-		.value {
-			font-family: "Kelly Slab", sans-serif;
-			font-size: 32px;
-		}
-	}
-
-	.buttonText {
-		font-size: 32px;
-	}
-
-	@include sm-pre {
-		width: $container-mobile;
-		padding: 32px 16px;
-	}
-}
-
 .collectButton {
-    background-color: #fff !important;
-    color: #000 !important;
+    background-color: $text !important;
+    color: $bg !important;
 }
 
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
